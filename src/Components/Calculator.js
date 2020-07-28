@@ -2,102 +2,76 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import "./Calculator.css";
 const Calculator = () => {
   return (
     <Container
       maxWidth="sm"
       style={{
         backgroundColor: "lightblue",
-        height: "60vh",
+
         marginTop: "10vh",
+        marginBottom: "10vh",
+        padding: 0,
       }}
     >
-      Numbers go boop boop beep
-      <Grid container spacing={0} style={{ display: "grid" }}>
-        <Grid item xs={3}>
-          <Button color="primary" variant="outlined">
-            First
-          </Button>
-        </Grid>
-        <Grid item xs={3}>
-          <Button color="primary" variant="outlined">
-            Second
-          </Button>
-        </Grid>
-
-        <Grid item xs={3}>
-          <Button color="primary" variant="outlined">
-            Third
-          </Button>
-        </Grid>
-        <Grid item xs={3}>
-          <Button color="primary" variant="outlined">
-            Fourth
-          </Button>
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            color="primary"
-            variant="outlined"
-            style={{ width: "100%", height: "100%" }}
-          >
-            First
-          </Button>
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            color="primary"
-            variant="outlined"
-            style={{ width: "100%", height: "100%" }}
-          >
-            Second
-          </Button>
-        </Grid>
-
-        <Grid item xs={3}>
-          <Button
-            color="primary"
-            variant="outlined"
-            style={{ width: "100%", height: "100%" }}
-          >
-            Third
-          </Button>
-        </Grid>
-        <Grid item xs={3} container direction="column">
-          <Button color="primary" variant="outlined">
-            Fourth
-          </Button>
-          <Grid item xs={12}>
-            <Button
-              color="secondary"
-              variant="outlined"
-              style={{ width: "100%" }}
-            >
-              Fifth
-            </Button>
-          </Grid>
-        </Grid>
-        <Grid item xs={3}>
-          <Button color="primary" variant="outlined">
-            First
-          </Button>
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            color="primary"
-            variant="outlined"
-            style={{ width: "100%", height: "100%" }}
-          >
-            Second
-          </Button>
-        </Grid>
-
-        <Grid item xs={3}>
-          <Button color="primary" variant="outlined">
-            Third
-          </Button>
-        </Grid>
-      </Grid>
+      <div className="grid-container">
+        <div className="grid-item showNumber">
+          <Typography>number goes here</Typography>
+        </div>
+        <div className="grid-item AC">
+          <Typography>AC</Typography>
+        </div>
+        <div className="grid-item s-divide">
+          <Typography>/</Typography>
+        </div>
+        <div className="grid-item s-multiply">
+          <Typography>X</Typography>
+        </div>
+        <div className="grid-item no7">
+          <Typography>7</Typography>
+        </div>
+        <div className="grid-item no8">
+          <Typography>8</Typography>
+        </div>
+        <div className="grid-item no9">
+          <Typography>9</Typography>
+        </div>
+        <div className="grid-item s-minus">
+          <Typography>-</Typography>
+        </div>
+        <div className="grid-item no4">
+          <Typography>4</Typography>
+        </div>
+        <div className="grid-item no5">
+          <Typography>5</Typography>
+        </div>
+        <div className="grid-item no6">
+          <Typography>6</Typography>
+        </div>
+        <div className="grid-item s-plus">
+          <Typography>+</Typography>
+        </div>
+        <div className="grid-item no1">
+          <Typography>1</Typography>
+        </div>
+        <div className="grid-item no2">
+          <Typography>2</Typography>
+        </div>
+        <div className="grid-item no3">
+          <Typography>3</Typography>
+        </div>
+        <div className="grid-item s-equal">
+          <Typography>=</Typography>
+        </div>
+        <div className="grid-item no0">
+          <Typography>0</Typography>
+        </div>
+        <div className="grid-item s-dot">
+          <Typography>.</Typography>
+        </div>
+      </div>
     </Container>
   );
 };

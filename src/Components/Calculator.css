@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  grid-template:
+    "showNumber showNumber showNumber showNumber" 15vh
+    "AC AC s-divide s-multiply" 10vh
+    "no7 no8 no9 s-minus" 10vh
+    "no4 no5 no6 s-plus" 10vh
+    "no1 no2 no3 s-equal" 10vh
+    "no0 no0 s-dot s-equal" 10vh;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: mediumaquamarine;
+  border: 4px solid slategray;
+}
+
+.showNumber {
+  grid-area: showNumber;
+}
+
+.AC {
+  grid-area: AC;
+}
+.s-divide {
+  grid-area: s-divide;
+}
+.s-multiply {
+  grid-area: s-multiply;
+}
+.no7 {
+  grid-area: no7;
+}
+.no8 {
+  grid-area: no8;
+}
+.no9 {
+  grid-area: no9;
+}
+
+.s-minus {
+  grid-area: s-minus;
+}
+.no4 {
+  grid-area: no4;
+}
+.no5 {
+  grid-area: no5;
+}
+.no6 {
+  grid-area: no6;
+}
+.s-plus {
+  grid-area: s-plus;
+}
+.no1 {
+  grid-area: no1;
+}
+
+.no2 {
+  grid-area: no2;
+}
+.no3 {
+  grid-area: no3;
+}
+.s-equal {
+  grid-area: s-equal;
+}
+.no0 {
+  grid-area: no0;
+}
+.s-dot {
+  grid-area: s-dot;
+}
