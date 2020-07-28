@@ -13,26 +13,88 @@ const Calculator = () => {
       }}
     >
       Numbers go boop boop beep
-      <Grid container spacing={2}>
-        <Grid item>
-          <Button color="primary" variant="contained">
-            First Item
+      <Grid container spacing={0} style={{ display: "grid" }}>
+        <Grid item xs={3}>
+          <Button color="primary" variant="outlined">
+            First
           </Button>
         </Grid>
-        <Grid item>
-          <Button color="primary" variant="contained">
-            Second Item
+        <Grid item xs={3}>
+          <Button color="primary" variant="outlined">
+            Second
           </Button>
         </Grid>
 
-        <Grid item>
-          <Button color="primary" variant="contained">
-            Third Item
+        <Grid item xs={3}>
+          <Button color="primary" variant="outlined">
+            Third
           </Button>
         </Grid>
-        <Grid item>
-          <Button color="primary" variant="contained">
-            Fourth Item
+        <Grid item xs={3}>
+          <Button color="primary" variant="outlined">
+            Fourth
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            color="primary"
+            variant="outlined"
+            style={{ width: "100%", height: "100%" }}
+          >
+            First
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            color="primary"
+            variant="outlined"
+            style={{ width: "100%", height: "100%" }}
+          >
+            Second
+          </Button>
+        </Grid>
+
+        <Grid item xs={3}>
+          <Button
+            color="primary"
+            variant="outlined"
+            style={{ width: "100%", height: "100%" }}
+          >
+            Third
+          </Button>
+        </Grid>
+        <Grid item xs={3} container direction="column">
+          <Button color="primary" variant="outlined">
+            Fourth
+          </Button>
+          <Grid item xs={12}>
+            <Button
+              color="secondary"
+              variant="outlined"
+              style={{ width: "100%" }}
+            >
+              Fifth
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid item xs={3}>
+          <Button color="primary" variant="outlined">
+            First
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            color="primary"
+            variant="outlined"
+            style={{ width: "100%", height: "100%" }}
+          >
+            Second
+          </Button>
+        </Grid>
+
+        <Grid item xs={3}>
+          <Button color="primary" variant="outlined">
+            Third
           </Button>
         </Grid>
       </Grid>
