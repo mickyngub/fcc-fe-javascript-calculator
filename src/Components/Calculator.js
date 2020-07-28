@@ -1,23 +1,46 @@
 import React, { useState, useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-
 import "./Calculator.css";
+
+const math = require("mathjs");
+
 const Calculator = () => {
   const [wholeString, setWholeString] = useState("");
   const [value, setValue] = useState(0);
 
   const signPressHandler = (sign) => {
-    setValue((current) => (current = sign));
+    setValue((current) => sign);
+    setWholeString((current) => current + sign);
   };
   const numberPressHandler = (number) => {
     if (value === 0) {
       setValue(number);
       setWholeString(number);
+    } else if (
+      value === "X" ||
+      value === "/" ||
+      value === "+" ||
+      value === "-"
+    ) {
+      setValue(number);
+      setWholeString((current) => current + number);
     } else {
       setValue((current) => current + number);
       setWholeString((current) => current + number);
+    }
+  };
+  const equalPressHandler = () => {
+    let lastString = wholeString.slice(-1);
+    let testRegex = /[+\-*/]/;
+    if (testRegex.test(lastString)) {
+      console.log("last string is sign");
+      return;
+    } else {
+      let answer = math.evaluate(wholeString);
+      setValue((current) => (current = answer));
+      setWholeString((current) => current + "=" + answer.toString());
+      console.log("last string is not a sign");
     }
   };
   const acPressHandler = () => {
@@ -37,9 +60,9 @@ const Calculator = () => {
     >
       <div className="grid-container">
         <div className="grid-item showNumber">
-          <Typography>whole string goes here {wholeString}-----</Typography>
+          <Typography>{wholeString},,,,,</Typography>
 
-          <Typography>current number goes here {value}</Typography>
+          <Typography>This is value-{value}</Typography>
         </div>
         <div className="grid-item AC" onClick={acPressHandler}>
           <Typography>AC</Typography>
@@ -52,7 +75,7 @@ const Calculator = () => {
         </div>
         <div
           className="grid-item s-multiply"
-          onClick={() => signPressHandler("X")}
+          onClick={() => signPressHandler("*")}
         >
           <Typography>X</Typography>
         </div>
@@ -92,7 +115,7 @@ const Calculator = () => {
         <div className="grid-item no3" onClick={() => numberPressHandler("3")}>
           <Typography>3</Typography>
         </div>
-        <div className="grid-item s-equal">
+        <div className="grid-item s-equal" onClick={equalPressHandler}>
           <Typography>=</Typography>
         </div>
         <div className="grid-item no0" onClick={() => numberPressHandler("0")}>
