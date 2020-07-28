@@ -8,23 +8,52 @@ const math = require("mathjs");
 const Calculator = () => {
   const [wholeString, setWholeString] = useState("");
   const [value, setValue] = useState(0);
+  const [result, setResult] = useState("");
 
   const signPressHandler = (sign) => {
+    if (result !== "") {
+      setWholeString(result);
+      setResult("");
+    }
     let lastString = wholeString.slice(-1);
-    let testRegex = /[+\-*/]/;
-    if (testRegex.test(lastString)) {
+    let testRegex = /[+*/]/;
+    let testMinus = /[-]/;
+    if (testMinus.test(lastString)) {
       return;
+    }
+
+    if (testRegex.test(lastString)) {
+      if (sign === "-") {
+        setValue((current) => (current = sign));
+        setWholeString((current) => current + sign);
+      } else {
+        setWholeString(
+          (current) =>
+            (current = current.substring(0, current.length - 1) + sign)
+        );
+        setValue((current) => (current = sign));
+      }
     } else {
-      setValue((current) => sign);
+      setValue((current) => (current = sign));
       setWholeString((current) => current + sign);
     }
   };
   const numberPressHandler = (number) => {
-    if (value === 0) {
-      setValue(number);
+    if (result !== "") {
       setWholeString(number);
+      setValue(number);
+      setResult("");
+      return;
+    }
+    if (value === 0) {
+      if (number === "0") {
+        return;
+      } else {
+        setValue(number);
+        setWholeString(number);
+      }
     } else if (
-      value === "X" ||
+      value === "*" ||
       value === "/" ||
       value === "+" ||
       value === "-"
@@ -37,8 +66,14 @@ const Calculator = () => {
     }
   };
   const dotPressHandler = () => {
-    setValue((current) => current + ".");
-    setWholeString((current) => current + ".");
+    if (wholeString.slice(-1) === ".") {
+      return;
+    } else if (value.includes(".")) {
+      return;
+    } else {
+      setValue((current) => current + ".");
+      setWholeString((current) => current + ".");
+    }
   };
   const equalPressHandler = () => {
     let lastString = wholeString.slice(-1);
@@ -48,6 +83,7 @@ const Calculator = () => {
       return;
     } else {
       let answer = math.evaluate(wholeString);
+      setResult(answer);
       setValue((current) => (current = answer));
       setWholeString((current) => current + "=" + answer.toString());
       console.log("last string is not a sign");
