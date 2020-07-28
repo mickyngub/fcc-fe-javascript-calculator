@@ -10,8 +10,14 @@ const Calculator = () => {
   const [value, setValue] = useState(0);
 
   const signPressHandler = (sign) => {
-    setValue((current) => sign);
-    setWholeString((current) => current + sign);
+    let lastString = wholeString.slice(-1);
+    let testRegex = /[+\-*/]/;
+    if (testRegex.test(lastString)) {
+      return;
+    } else {
+      setValue((current) => sign);
+      setWholeString((current) => current + sign);
+    }
   };
   const numberPressHandler = (number) => {
     if (value === 0) {
@@ -29,6 +35,10 @@ const Calculator = () => {
       setValue((current) => current + number);
       setWholeString((current) => current + number);
     }
+  };
+  const dotPressHandler = () => {
+    setValue((current) => current + ".");
+    setWholeString((current) => current + ".");
   };
   const equalPressHandler = () => {
     let lastString = wholeString.slice(-1);
@@ -60,9 +70,12 @@ const Calculator = () => {
     >
       <div className="grid-container">
         <div className="grid-item showNumber">
-          <Typography>{wholeString},,,,,</Typography>
-
-          <Typography>This is value-{value}</Typography>
+          <div>
+            <Typography>{wholeString}</Typography>
+          </div>
+          <div>
+            <Typography>{value}</Typography>
+          </div>
         </div>
         <div className="grid-item AC" onClick={acPressHandler}>
           <Typography>AC</Typography>
@@ -121,7 +134,7 @@ const Calculator = () => {
         <div className="grid-item no0" onClick={() => numberPressHandler("0")}>
           <Typography>0</Typography>
         </div>
-        <div className="grid-item s-dot">
+        <div className="grid-item s-dot" onClick={dotPressHandler}>
           <Typography>.</Typography>
         </div>
       </div>

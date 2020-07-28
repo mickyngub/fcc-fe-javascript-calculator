@@ -27,6 +27,7 @@
 
 .showNumber {
   grid-area: showNumber;
+  display: grid;
 }
 
 .AC {
