@@ -20,8 +20,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: mediumaquamarine;
+  background-color: rgba(59, 55, 45, 0.95);
   border: 4px solid slategray;
+  color: white;
 }
 
 .showNumber {
@@ -29,12 +30,16 @@
 }
 
 .AC {
+  background-color: rgb(184, 42, 73);
   grid-area: AC;
 }
 .s-divide {
+  background-color: rgb(170, 170, 189);
   grid-area: s-divide;
 }
 .s-multiply {
+  background-color: rgb(170, 170, 189);
+
   grid-area: s-multiply;
 }
 .no7 {
@@ -48,6 +53,8 @@
 }
 
 .s-minus {
+  background-color: rgb(170, 170, 189);
+
   grid-area: s-minus;
 }
 .no4 {
@@ -60,6 +67,8 @@
   grid-area: no6;
 }
 .s-plus {
+  background-color: rgb(170, 170, 189);
+
   grid-area: s-plus;
 }
 .no1 {
@@ -73,6 +82,7 @@
   grid-area: no3;
 }
 .s-equal {
+  background-color: rgb(63, 63, 217);
   grid-area: s-equal;
 }
 .no0 {
