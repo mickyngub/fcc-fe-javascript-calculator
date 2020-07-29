@@ -19,6 +19,10 @@ const Calculator = () => {
     let testRegex = /[+*/]/;
     let testMinus = /[-]/;
     if (testMinus.test(lastString)) {
+      setWholeString(
+        (current) => (current = current.substring(0, current.length - 2) + sign)
+      );
+      setValue((current) => (current = sign));
       return;
     }
 
@@ -45,8 +49,8 @@ const Calculator = () => {
       setResult("");
       return;
     }
-    if (value === 0) {
-      if (number === "0") {
+    if (value == 0) {
+      if (number == "0") {
         return;
       } else {
         setValue(number);
@@ -109,68 +113,119 @@ const Calculator = () => {
           <div>
             <Typography>{wholeString}</Typography>
           </div>
-          <div>
+          <div id="display">
             <Typography>{value}</Typography>
           </div>
         </div>
-        <div className="grid-item AC" onClick={acPressHandler}>
+        <div id="clear" className="grid-item AC" onClick={acPressHandler}>
           <Typography>AC</Typography>
         </div>
         <div
+          id="divide"
           className="grid-item s-divide"
           onClick={() => signPressHandler("/")}
         >
           <Typography>/</Typography>
         </div>
         <div
+          id="multiply"
           className="grid-item s-multiply"
           onClick={() => signPressHandler("*")}
         >
           <Typography>X</Typography>
         </div>
-        <div className="grid-item no7" onClick={() => numberPressHandler("7")}>
+        <div
+          id="seven"
+          className="grid-item no7"
+          onClick={() => numberPressHandler("7")}
+        >
           <Typography>7</Typography>
         </div>
-        <div className="grid-item no8" onClick={() => numberPressHandler("8")}>
+        <div
+          id="eight"
+          className="grid-item no8"
+          onClick={() => numberPressHandler("8")}
+        >
           <Typography>8</Typography>
         </div>
-        <div className="grid-item no9" onClick={() => numberPressHandler("9")}>
+        <div
+          id="nine"
+          className="grid-item no9"
+          onClick={() => numberPressHandler("9")}
+        >
           <Typography>9</Typography>
         </div>
         <div
+          id="subtract"
           className="grid-item s-minus"
           onClick={() => signPressHandler("-")}
         >
           <Typography>-</Typography>
         </div>
-        <div className="grid-item no4" onClick={() => numberPressHandler("4")}>
+        <div
+          id="four"
+          className="grid-item no4"
+          onClick={() => numberPressHandler("4")}
+        >
           <Typography>4</Typography>
         </div>
-        <div className="grid-item no5" onClick={() => numberPressHandler("5")}>
+        <div
+          id="five"
+          className="grid-item no5"
+          onClick={() => numberPressHandler("5")}
+        >
           <Typography>5</Typography>
         </div>
-        <div className="grid-item no6" onClick={() => numberPressHandler("6")}>
+        <div
+          id="six"
+          className="grid-item no6"
+          onClick={() => numberPressHandler("6")}
+        >
           <Typography>6</Typography>
         </div>
-        <div className="grid-item s-plus" onClick={() => signPressHandler("+")}>
+        <div
+          id="add"
+          className="grid-item s-plus"
+          onClick={() => signPressHandler("+")}
+        >
           <Typography>+</Typography>
         </div>
-        <div className="grid-item no1" onClick={() => numberPressHandler("1")}>
+        <div
+          id="one"
+          className="grid-item no1"
+          onClick={() => numberPressHandler("1")}
+        >
           <Typography>1</Typography>
         </div>
-        <div className="grid-item no2" onClick={() => numberPressHandler("2")}>
+        <div
+          id="two"
+          className="grid-item no2"
+          onClick={() => numberPressHandler("2")}
+        >
           <Typography>2</Typography>
         </div>
-        <div className="grid-item no3" onClick={() => numberPressHandler("3")}>
+        <div
+          id="three"
+          className="grid-item no3"
+          onClick={() => numberPressHandler("3")}
+        >
           <Typography>3</Typography>
         </div>
-        <div className="grid-item s-equal" onClick={equalPressHandler}>
+        <div
+          id="equals"
+          className="grid-item s-equal"
+          onClick={equalPressHandler}
+        >
           <Typography>=</Typography>
         </div>
-        <div className="grid-item no0" onClick={() => numberPressHandler("0")}>
+        <div
+          id="zero"
+          className="grid-item no0"
+          onClick={() => numberPressHandler("0")}
+        >
           <Typography>0</Typography>
         </div>
-        <div className="grid-item s-dot" onClick={dotPressHandler}>
+        <div id="decimal" className="grid-item s-dot" onClick={dotPressHandler}>
           <Typography>.</Typography>
         </div>
       </div>
